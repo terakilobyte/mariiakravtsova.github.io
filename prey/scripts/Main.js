@@ -145,3 +145,8 @@ function saveGraph()
 {
 	graph.saveImage();
 }
+
+function saveValues()
+{
+		saveValues();
+}

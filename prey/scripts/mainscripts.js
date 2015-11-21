@@ -116,10 +116,23 @@ function simulate(numGenerations) {
 	$("#compare-to-td").show();
 }
 
-function saveValues(preyArray, predatorArray){
-  localStorage.setItem(‘predArray’, predArray’);
-  localStorage.setItem(‘preyArray’, preyArray’);
+function saveValues()
+{
+	Storage.prototype.setObj = function(key, obj) {
+		return this.setItem(key, JSON.stringify(obj));
+	}
+
+	Storage.prototype.getObj = function(key) {
+  	return JSON.parse(this.getItem(key))
+	}
+
+
+	function saveItems(preyArray, predatorArray){
+  	localStorage.setObj(‘predArray’, predArray’);
+  	localStorage.setObj(‘preyArray’, preyArray’);
+	}	
 }
+
 
 
 function calculatePrey(prey, preyGrowthRate, preyDeathRate, predator, timeStep) {
