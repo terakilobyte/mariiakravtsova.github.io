@@ -1,3 +1,15 @@
+// Setting up easy access to localStorage
+Storage.prototype.setObj = function(key, obj) {
+	return this.setItem(key, JSON.stringify(obj));
+}
+
+Storage.prototype.getObj = function(key) {
+  	return JSON.parse(this.getItem(key))
+}
+
+// Global predatorArray and preyArray variables to use with localStorage
+
+
 // Canvas and context variables
 var canvas;
 var c;
@@ -77,8 +89,8 @@ function simulate(numGenerations) {
 	console.log("Simulating " + numGenerations + " generations.")
 
 	// Reset
-	var predatorArray = [];
-	var preyArray = [];
+	predatorArray = [];
+	preyArray = [];
 	var max = 0;
 
     // Get parameters
@@ -118,17 +130,8 @@ function simulate(numGenerations) {
 
 function saveValues()
 {
-	Storage.prototype.setObj = function(key, obj) {
-		return this.setItem(key, JSON.stringify(obj));
-	}
-
-	Storage.prototype.getObj = function(key) {
-  	return JSON.parse(this.getItem(key))
-	}
-
-
 	function saveItems(preyArray, predatorArray){
-  	localStorage.setObj(‘predArray’, predArray’);
+  	localStorage.setObj(‘predArray’, predatorArray’);
   	localStorage.setObj(‘preyArray’, preyArray’);
 	}	
 }
