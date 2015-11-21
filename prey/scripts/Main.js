@@ -21,13 +21,11 @@ $( function()
 		simulate();
 	});
 
-	// Hide options that shouldn't be available until simulation is run.
-	$("#compare-to-td").hide();
-	$("#save-graph").hide();
-
 	// Initialize the jQuery UI sliders
 	initSliders();
 });
+
+
 
 function initSliders()
 {

@@ -116,6 +116,12 @@ function simulate(numGenerations) {
 	$("#compare-to-td").show();
 }
 
+function saveValues(preyArray, predatorArray){
+  localStorage.setItem(‘predArray’, predArray’);
+  localStorage.setItem(‘preyArray’, preyArray’);
+}
+
+
 function calculatePrey(prey, preyGrowthRate, preyDeathRate, predator, timeStep) {
     var change = preyGrowthRate * prey - preyDeathRate * prey * predator;
     return prey + change * timeStep;
